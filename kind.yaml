@@ -4,3 +4,8 @@ name: main
 networking:
   apiServerAddress: "0.0.0.0"
   apiServerPort: 6443
+nodes:
+- role: control-plane
+  extraPortMappings:
+  - containerPort: 30080 # The port inside the kind container (often matches NodePort)
+    hostPort: 8080      # The port on your local machine
